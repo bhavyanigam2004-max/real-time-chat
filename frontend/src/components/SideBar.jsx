@@ -20,7 +20,7 @@ let navigate=useNavigate()
 
 const handleLogOut=async ()=>{
         try {
-            let result =await axios.post(`${serverUrl}/api/auth/logout`,{withCredentials:true})
+            let result =await axios.post(`${serverUrl}/api/auth/logout`,{},{withCredentials:true})
 dispatch(setUserData(null))
 dispatch(setOtherUsers(null))
 navigate("/login")
