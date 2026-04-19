@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux"
 import { setOtherUsers, setLoading } from "../redux/userSlice"
 
 const getOtherUser = () => {  
-    const serverUrl = "http://localhost:8000"
+    const serverUrl = import.meta.env.VITE_BACKEND_URL
     let dispatch = useDispatch()
 
     useEffect(() => {

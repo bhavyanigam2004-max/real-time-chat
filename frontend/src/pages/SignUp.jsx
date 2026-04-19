@@ -13,7 +13,7 @@ function SignUp() {
      let [err,setErr]=useState("")
      let dispatch=useDispatch()
      
-let serverUrl = "http://localhost:8000"
+let serverUrl = import.meta.env.VITE_BACKEND_URL
  const handleSignUp = async (e) => {
       e.preventDefault()
       setLoading(true)

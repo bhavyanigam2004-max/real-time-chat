@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { setUserData,setLoading } from "../redux/userSlice"
 
 const getCurrentUser = () => {
-    const serverUrl = "http://localhost:8000"
+    const serverUrl = import.meta.env.VITE_BACKEND_URL
     let dispatch = useDispatch()
     let { userData } = useSelector(state => state.user)
 
