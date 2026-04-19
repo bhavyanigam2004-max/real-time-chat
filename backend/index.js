@@ -11,7 +11,7 @@ import { app, server } from "./socket/socket.js"
 
 app.use(cors(
   {
-    origin:"http://localhost:5173",credentials:true
+    origin:"https://realtimechatapp-plgd.onrender.com",credentials:true
   }
 ))
 app.use(express.json())
