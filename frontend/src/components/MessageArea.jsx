@@ -88,7 +88,7 @@ useEffect(()=>{
 },[socket])  
 
   return (
-  <div className={`lg:w-[70%] relative ${selectedUser ? "flex" : "hidden"} lg:flex w-full h-full bg-slate-200 border-l-2 border-gray-300`}>
+  <div className={`lg:w-[70%] relative ${selectedUser ? "flex" : "hidden"} lg:flex w-full h-[100dvh] bg-slate-200 border-l-2 border-gray-300`}>
 
     {selectedUser &&
       <div className='w-full h-full flex flex-col'>
