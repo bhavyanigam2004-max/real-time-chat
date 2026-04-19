@@ -13,7 +13,7 @@ function SignUp() {
      let [err,setErr]=useState("")
      let dispatch=useDispatch()
      
-let serverUrl = import.meta.env.VITE_BACKEND_URL
+let serverUrl = "https://realtimechatapp-backend-shjc.onrender.com"L
  const handleSignUp = async (e) => {
       e.preventDefault()
       setLoading(true)

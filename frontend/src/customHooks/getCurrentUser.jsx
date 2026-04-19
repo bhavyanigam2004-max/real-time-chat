@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { setUserData,setLoading } from "../redux/userSlice"
 
 const getCurrentUser = () => {
-    const serverUrl = import.meta.env.VITE_BACKEND_URL
+    const serverUrl = "https://realtimechatapp-backend-shjc.onrender.com"
     let dispatch = useDispatch()
     let { userData } = useSelector(state => state.user)
 

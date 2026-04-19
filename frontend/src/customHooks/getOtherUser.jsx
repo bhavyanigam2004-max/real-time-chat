@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux"
 import { setOtherUsers, setLoading } from "../redux/userSlice"
 
 const getOtherUser = () => {  
-    const serverUrl = import.meta.env.VITE_BACKEND_URL
+    const serverUrl = "https://realtimechatapp-backend-shjc.onrender.com"
     let dispatch = useDispatch()
 
     useEffect(() => {
