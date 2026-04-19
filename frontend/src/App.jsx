@@ -47,7 +47,7 @@ let dispatch=useDispatch()
 
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={userData ? <Navigate to="/home"/> : <Navigate to="/login"/>} />
       <Route path='/login' element={!userData?<Login/>:<Navigate to="/home"/>}/>
       <Route path='/signup' element={!userData?<SignUp/>:<Navigate to="/profile"/>}/>
       <Route path='/home' element={userData?<Home/>:<Navigate to="/login"/>}/>
