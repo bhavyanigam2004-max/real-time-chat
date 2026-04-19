@@ -119,7 +119,7 @@ useEffect(()=>{
             </div>
           )}
           {messages && messages.map((mess) => (
-            mess.sender == userData._id
+            mess.sender.toString() === userData._id.toString()
               ? <SenderMessage key={mess._id} message={mess.message} image={mess.image}/>
               : <ReceiverMessage key={mess._id} image={mess.image} message={mess.message}/>
           ))}
