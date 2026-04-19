@@ -12,7 +12,7 @@ import ReceiverMessage from './ReceiverMessage';
 import { serverUrl } from '../main';
 import axios from 'axios';
 import { setMessages, addMessage } from '../redux/messageSlice'
-
+import { useNavigate } from 'react-router-dom'
 function MessageArea() {
   let {selectedUser, userData,socket,onlineUsers} = useSelector(state => state.user)
   let dispatch = useDispatch()
@@ -23,7 +23,7 @@ function MessageArea() {
   let image = useRef()
   let {messages} = useSelector(state => state.message)
 let messagesEndRef = useRef(null)
-  
+  const navigate = useNavigate()
   useEffect(() => {
     if (!selectedUser) return;
     const fetchMessages = async () => {
@@ -118,11 +118,12 @@ useEffect(()=>{
               <EmojiPicker width={250} height={320} className='shadow-gray-400 shadow-lg' onEmojiClick={onEmojiClick}/>
             </div>
           )}
-          {messages && messages.map((mess) => (
+          {messages && messages.map((mess) => {
+            console.log("sender:", mess.sender, "userData:", userData._id)
             mess.sender.toString() === userData._id.toString()
               ? <SenderMessage key={mess._id} message={mess.message} image={mess.image}/>
               : <ReceiverMessage key={mess._id} image={mess.image} message={mess.message}/>
-          ))}
+})}
           <div ref={messagesEndRef} />
         </div>
 
