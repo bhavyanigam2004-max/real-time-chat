@@ -59,7 +59,7 @@ return (
             <RiLogoutCircleLine className='w-[25px] h-[25px]'/>
         </div>
 
-        <div className='w-full bg-[#20c7ff] h-[200px] rounded-b-[30%] px-5 pt-5 shadow-gray-400 shadow-lg flex flex-col items-start text-left'>
+        <div className='w-full bg-[#20c7ff] h-[150px] rounded-b-[30%] px-5 pt-5 shadow-gray-400 shadow-lg flex flex-col items-start text-left'>
             <h1 className='text-white font-bold text-[22px]'>ChatLy</h1>
             <div className='flex items-center justify-between'>
                 <h1 className='text-gray-700 font-semibold text-[19px]'>Hii , {userData?.name || "user"}</h1>

@@ -94,7 +94,7 @@ useEffect(()=>{
       <div className='w-full h-full flex flex-col'>
         
         
-        <div className='w-full bg-[#20c7ff] h-[100px] rounded-b-[30px] px-4 shadow-gray-400 shadow-lg flex flex-row items-center gap-4 flex-shrink-0'>
+        <div className='w-full bg-[#20c7ff] h-[70px] rounded-b-[30px] px-4 shadow-gray-400 shadow-lg flex flex-row items-center gap-4 flex-shrink-0'>
           <div className='curser-pointer' onClick={() => dispatch(setSelectedUser(null))}>
             <IoIosArrowRoundBack className='w-[35px] h-[35px] text-white cursor-pointer flex-shrink-0' onClick={() => {
     dispatch(setSelectedUser(null))
@@ -128,7 +128,7 @@ useEffect(()=>{
         </div>
 
         
-        <div className='w-full h-[90px] justify-center items-center flex flex-shrink-0 py-[15px]'>
+        <div className='w-full h-[70px] justify-center items-center flex flex-shrink-0 py-[15px]'>
           {frontendImage && (
             <img src={frontendImage} alt="" className='w-[80px] absolute bottom-[100px] right-[5%] rounded-lg shadow-gray-400 shadow-lg'/>
           )}

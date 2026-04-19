@@ -3,7 +3,7 @@ import MessageArea from '../components/MessageArea'
 import SideBar from '../components/SideBar'
 function Home() {
   return (
-    <div className='w-full h-[100vh] flex flex-col lg:flex-row overflow-hidden '>
+    <div className='w-full h-[100dvh] flex flex-col lg:flex-row overflow-hidden '>
        <SideBar/>
        <MessageArea/>
     </div>
