@@ -120,7 +120,7 @@ useEffect(()=>{
           )}
           {messages && messages.map((mess) => {
             console.log("sender:", mess.sender, "userData:", userData._id)
-            mess.sender.toString() === userData._id.toString()
+            return mess.sender.toString() === userData._id.toString()
               ? <SenderMessage key={mess._id} message={mess.message} image={mess.image}/>
               : <ReceiverMessage key={mess._id} image={mess.image} message={mess.message}/>
 })}
