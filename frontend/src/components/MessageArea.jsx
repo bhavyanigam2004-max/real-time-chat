@@ -7,8 +7,8 @@ import { RiEmojiStickerLine } from "react-icons/ri";
 import { LuSend } from "react-icons/lu";
 import { FaRegImages } from "react-icons/fa6";
 import EmojiPicker from 'emoji-picker-react';
-import SenderMessage from './senderMessage';
-import ReceiverMessage from './receiverMessage';
+import SenderMessage from './SenderMessage';
+import ReceiverMessage from './ReceiverMessage';
 import { serverUrl } from '../main';
 import axios from 'axios';
 import { setMessages, addMessage } from '../redux/messageSlice'
