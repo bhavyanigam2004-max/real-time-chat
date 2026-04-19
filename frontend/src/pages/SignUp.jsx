@@ -13,7 +13,7 @@ function SignUp() {
      let [err,setErr]=useState("")
      let dispatch=useDispatch()
      
-let serverUrl = "https://realtimechatapp-backend-shjc.onrender.com"L
+ let serverUrl = "https://realtimechatapp-backend-shjc.onrender.com"
  const handleSignUp = async (e) => {
       e.preventDefault()
       setLoading(true)
