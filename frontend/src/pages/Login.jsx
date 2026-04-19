@@ -8,7 +8,7 @@ function Login() {
   let [show, setShow] = useState(false)
   let [email, setEmail] = useState("")
   let [password, setPassword] = useState("")
-  let serverUrl = "http://localhost:8000"
+  let serverUrl = "https://realtimechatapp-backend-shjc.onrender.com"
 let [loading, setLoading] = useState(false)
 let [err,setErr]=useState("")
 let dispatch=useDispatch()
