@@ -23,6 +23,7 @@ function MessageArea() {
   let image = useRef()
   let {messages} = useSelector(state => state.message)
 let messagesEndRef = useRef(null)
+  let [suggestions, setSuggestions] = useState([])
   const navigate = useNavigate()
   useEffect(() => {
     if (!selectedUser) return;
@@ -71,6 +72,7 @@ let messagesEndRef = useRef(null)
       setInput("")
       setFrontendImage(null)
       setBackendImage(null)
+      setSuggestions([])
     } catch (error) {
       console.log(error)
     }
@@ -86,6 +88,43 @@ useEffect(()=>{
   })
   return ()=>socket?.off("newMessage")
 },[socket])  
+
+  // AI Smart Replies: whenever the latest message is from the OTHER
+  // person (not something we sent), ask the backend for 3 short reply
+  // suggestions the user can tap instead of typing.
+  useEffect(() => {
+    const fetchSuggestions = async () => {
+      if (!messages || messages.length === 0) return
+      const lastMessage = messages[messages.length - 1]
+
+      if (lastMessage.sender.toString() === userData._id.toString()) {
+        setSuggestions([])
+        return
+      }
+      if (!lastMessage.message) {
+        setSuggestions([])
+        return
+      }
+
+      try {
+        let result = await axios.post(
+          `${serverUrl}/api/message/suggest`,
+          { message: lastMessage.message },
+          { withCredentials: true }
+        )
+        setSuggestions(result.data.suggestions || [])
+      } catch (error) {
+        console.log(error)
+        setSuggestions([])
+      }
+    }
+    fetchSuggestions()
+  }, [messages])
+
+  const handleSuggestionClick = (text) => {
+    setInput(text)
+    setSuggestions([])
+  }
 
   return (
   <div className={`lg:w-[70%] relative ${selectedUser ? "flex" : "hidden"} lg:flex w-full h-[100dvh] bg-slate-200 border-l-2 border-gray-300`}>
@@ -128,6 +167,21 @@ useEffect(()=>{
         </div>
 
         
+        {suggestions.length > 0 && (
+          <div className='w-full flex gap-[10px] px-[20px] pb-[10px] flex-wrap justify-center'>
+            {suggestions.map((s, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => handleSuggestionClick(s)}
+                className='bg-white text-[#1797c2] px-[14px] py-[6px] rounded-full text-[14px] shadow-gray-400 shadow-md border border-[#20c7ff] cursor-pointer hover:bg-[#e6f9ff]'
+              >
+                {s}
+              </button>
+            ))}
+          </div>
+        )}
+
         <div className='w-full h-[70px] justify-center items-center flex flex-shrink-0 py-[15px]'>
           {frontendImage && (
             <img src={frontendImage} alt="" className='w-[80px] absolute bottom-[100px] right-[5%] rounded-lg shadow-gray-400 shadow-lg'/>
